@@ -1,0 +1,7 @@
+interface:
+  display_name: "原始笔记记录"
+  short_description: "根据提示把文本代码与命令内容保存为规范化原始笔记文件"
+  default_prompt: "Use $record-raw-note to save my rough text, code, and commands as a raw note in the configured 原始笔记 folder."
+
+policy:
+  allow_implicit_invocation: true

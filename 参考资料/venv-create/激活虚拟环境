@@ -1,0 +1,37 @@
+# ── 环境初始化（首次） ────────────────────────────────
+
+# 1. PowerShell 授权（允许执行脚本）
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# 2. 创建虚拟环境
+python -m venv venv
+
+# 3. 拉取 wechat-cli 源码
+git clone https://github.com/huohuoer/wechat-cli.git
+
+# 4. 安装依赖
+pip install sqlalchemy streamlit
+
+# 5. 安装 wechat-cli（可编辑模式，源码修改后立即生效，因为需你环境中只是指向源码目录，而不是复制源码到环境中）
+pip install -e wechat-cli
+
+
+# ── 每次启动 ─────────────────────────────────────────
+
+# 激活虚拟环境（PowerShell）
+venv\Scripts\activate
+
+# 运行 Streamlit UI
+streamlit run app.py
+
+# 运行 AI 分析（手动触发）
+python analyzer.py
+
+
+# ── 常用验证命令 ──────────────────────────────────────
+
+# 测试 wechat-cli 是否正常（先用微信联系人备注名试一下）
+wechat-cli history "联系人备注名" --format text
+
+# 查看已安装的包
+pip list
